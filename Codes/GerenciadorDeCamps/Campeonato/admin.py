@@ -1,3 +1,9 @@
 from django.contrib import admin
+from .models import Campeonato
 
-# Register your models here.
+class CampeonatoAdmin(admin.ModelAdmin):
+    list_display = [
+        "__all__"
+    ]    
+
+admin.site.register(Campeonato)

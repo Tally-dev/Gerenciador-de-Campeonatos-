@@ -1,16 +1,24 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load bootstrap %}
 
+{% block content %}
 <div class="row">
-    <div class="col-12">
+    <div class="col-md-4 mx-auto">
         <div class="card">
             <div class="card-body">
-                <form method="post" action=".">
+                <form action="{% url 'register' %}" method="post">
                     {% csrf_token %}
-                        
-                                                     
-                    {{ form }}
-                    <input class="btn btn-primary" type="submit" value="Criar conta">
+
+                    {{ form|bootstrap }}
+
+                    <input type="hidden" name="Next" class="btn btn-primary" value="{{ Next }}">
+
+                    <input type="submit" class="btn btn-primary" value="Registrar">
+
                 </form>
             </div>
         </div>
     </div>
 </div>
+{% endblock %}

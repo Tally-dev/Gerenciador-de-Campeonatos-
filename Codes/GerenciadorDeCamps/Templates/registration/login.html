@@ -1,12 +1,17 @@
+{% extends '_base.html' %}
 
+
+{% load bootstrap %}
+
+{% block content %}
 <div class="row">
-    <div class="col-12">
+    <div class="col-md-4 mx-auto">
         <div class="card">
             <div class="card-body">
                 <form action="{% url 'login' %}" method="post">
                     {% csrf_token %}
 
-                    {{ form}}
+                    {{ form|bootstrap }}
 
                     <input type="hidden" name="Next" class="btn btn-primary" value="{{ Next }}">
 
@@ -18,3 +23,4 @@
     </div>
 </div>
 
+{% endblock %}

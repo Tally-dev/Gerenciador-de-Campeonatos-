@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4 mx-auto">
+        <div class="card">
+            <div class="card-body">
+                A equipe {{ Equipe.nome }} é formada por: {{Equipe.participantes}}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

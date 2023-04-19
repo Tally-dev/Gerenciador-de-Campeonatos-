@@ -1,0 +1,69 @@
+{% extends '_base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body" class="table-responsive">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Equipes</h6>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Pariticipantes</th>
+                                    <th>Competições</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                                    
+                                {% if equipes %}
+                                    <ul>
+                                    {% for p in equipes %}
+                                        
+                                        <tbody>
+                                                
+                                                
+                                                <Th><a href="/equipes/{{ p.id }}/">{{ p.nome }}</a></Th>
+                                            
+                                                <Th><a href="/equipes/{{ p.id }}/">{{ p.participantes}}</a></Th>
+
+                                                <Th><a href="/equipes/{{ p.id }}/">{{ p.Campeonatos}}</a></Th>
+                                            
+                                            <th>
+                                                    <a href="/equipes/excluir/{{ p.id }}/"> 
+                                                        <button type="button" class="btn mb-1 btn-danger">
+                                                        Excluir <span> <i class="fa fa-close"></i> </span>
+                                                        </button>
+                                                    </a>   
+                                                    <a href="/equipes/editar/{{ p.id }}/">
+                                                        <button type="button" class="btn mb-1 btn-primary">
+                                                            Editar <span> <i class="fa fa-edit"></i> </span>
+                                                        </button>
+                                                    </a>
+                                            </Th>
+                                        </tbody>
+                                    {% endfor %}
+                                    </ul>
+                                {% else %}
+                                    <p>Não há registro de equipes.</p>
+                                {% endif %}
+                        </table>
+                <br>
+                {% if request.user.is_authenticated %}
+                <a href="/equipes/criar/"><button type="button" class="btn mb-1 btn-info">
+                    Add <span class="btn-icon-right"><i class="fa fa-plus"></i></span>
+                </button></a>
+                {%endif%}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{%endblock%}

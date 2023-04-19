@@ -1,3 +1,9 @@
 from django.contrib import admin
+from .models import Equipe
 
-# Register your models here.
+class EquipeAdmin(admin.ModelAdmin):
+    list_display = [
+        "__all__"
+    ]    
+
+admin.site.register(Equipe)

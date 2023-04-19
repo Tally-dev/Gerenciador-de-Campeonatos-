@@ -1,8 +1,9 @@
 from django.db import models
 
-# Create your models here.
 class Campeonato(models.Model):
-    nome_camp = models.CharField(verbose_name= 'Nome do Campeonato', max_length=100)
-    qtd_equipe = models.IntegerField(verbose_name= 'Quantidade de Equipes')
-    tipo_partida = models.CharField(verbose_name= ' Tipo de Partida')
+    nome = models.CharField(max_length=200, verbose_name= 'Nome', null= True )
+    qtdequipe = models.IntegerField(max_length=2, verbose_name= 'Quantidade de equipes', null= True )
+    tipopartida = models.CharField(max_length=200, verbose_name= 'Tipo de partida', null= True )
     
+    def __str__(self):
+        return self.nome
