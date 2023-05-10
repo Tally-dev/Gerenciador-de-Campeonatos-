@@ -10,10 +10,10 @@
             <div class="card-body" class="table-responsive">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Equipes</h6>
+                        <h6 class="m-0 font-weight-bold text-success">Equipes</h6>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered table-success" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>Nome</th>
@@ -30,23 +30,27 @@
                                         <tbody>
                                                 
                                                 
-                                                <Th><a href="/equipes/{{ p.id }}/">{{ p.nome }}</a></Th>
+                                                <Th><a href="/equipes/{{ p.id }}/"class="text-success">{{ p.nome }}</a></Th>
                                             
-                                                <Th><a href="/equipes/{{ p.id }}/">{{ p.participantes}}</a></Th>
+                                                <Th><a href="/equipes/{{ p.id }}/"class="text-success">{{ p.participantes}}</a></Th>
 
-                                                <Th><a href="/equipes/{{ p.id }}/">{{ p.Campeonatos}}</a></Th>
+                                                <Th><a href="/equipes/{{ p.id }}/"class="text-success">{{ p.Campeonato}}</a></Th>
                                             
                                             <th>
+                                                {% if request.user.is_authenticated %}
                                                     <a href="/equipes/excluir/{{ p.id }}/"> 
                                                         <button type="button" class="btn mb-1 btn-danger">
                                                         Excluir <span> <i class="fa fa-close"></i> </span>
                                                         </button>
                                                     </a>   
                                                     <a href="/equipes/editar/{{ p.id }}/">
-                                                        <button type="button" class="btn mb-1 btn-primary">
+                                                        <button type="button" class="btn mb-1 btn-success">
                                                             Editar <span> <i class="fa fa-edit"></i> </span>
                                                         </button>
                                                     </a>
+                                                    {% else %}
+                                                    <a> Você não está autorizado a realizar ações nessa lista </a>
+                                                {% endif %}
                                             </Th>
                                         </tbody>
                                     {% endfor %}
@@ -57,7 +61,7 @@
                         </table>
                 <br>
                 {% if request.user.is_authenticated %}
-                <a href="/equipes/criar/"><button type="button" class="btn mb-1 btn-info">
+                <a href="/equipes/criar/"><button type="button" class="btn mb-1 btn-success">
                     Add <span class="btn-icon-right"><i class="fa fa-plus"></i></span>
                 </button></a>
                 {%endif%}

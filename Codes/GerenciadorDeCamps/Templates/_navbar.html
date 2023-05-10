@@ -1,6 +1,16 @@
 <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
-        <a class="navbar-brand" href="/">MatchManager</a>
-        <a class="btn btn-primary" href="/accounts/register">Registrar-se</a>
+        <div class="col-lg-9 h-100 text-center text-lg-start my-auto">
+        <a class="navbar-brand text-success"  href="/">MatchManager</a>
+        </div>
+        <div class="col-lg-3 h-100 text-right text-lg-start my-auto">
+        {% if request.user.is_authenticated %}
+            <a class="btn btn-success ml-auto" href="/accounts/logout">Encerrar sessão</a>
+
+        {% else %}
+            <a class="btn btn-success ml-auto" href="/accounts/login">Logar</a>
+            <a class="btn btn-success" href="/accounts/register">Registrar-se</a>
+        {% endif %}
+        </div>
     </div>
 </nav>

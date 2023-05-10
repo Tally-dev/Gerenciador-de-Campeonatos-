@@ -1,3 +1,9 @@
 from django.contrib import admin
+from .models import Partida
 
-# Register your models here.
+class PartidaAdmin(admin.ModelAdmin):
+    list_display = [
+        "__all__"
+    ]    
+
+admin.site.register(Partida)

@@ -1,0 +1,25 @@
+{% extends '_base.html' %}
+
+{% load bootstrap %}
+
+{% load static %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4 mx-auto">
+        <div class="card">
+            <div class="card-body">
+                <form action="/partidas/editar/{{Partida_id}}/" method="post">
+                    {% csrf_token %}
+                
+                    {{ form.as_p }}
+                
+                    <input type="submit" value="Salvar" button type="button" class="btn mb-1 btn-success"> 
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
