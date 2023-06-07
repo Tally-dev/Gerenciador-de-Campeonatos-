@@ -1,16 +1,14 @@
-<nav class="navbar navbar-light bg-dark static-top">
-    <div class="container">
-        <div class="col-lg-9 h-100 text-center text-lg-start my-auto">
-        <a class="navbar-brand text-contraste"  href="/">MatchManager</a>
-        </div>
-        <div class="col-lg-3 h-100 text-right text-lg-start my-auto">
-        {% if request.user.is_authenticated %}
-            <a class="btn btn-success ml-auto" href="/accounts/logout">Encerrar sessão</a>
 
-        {% else %}
-            <a class="btn btn-success ml-auto" href="/accounts/login">Logar</a>
-            <a class="btn btn-success" href="/accounts/register">Registrar-se</a>
-        {% endif %}
-        </div>
-    </div>
+{% load static %}
+
+<!-- Navigation-->
+<a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
+<nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <li class="sidebar-brand"><a href="#page-top">MatchManager</a></li>
+        <li class="sidebar-nav-item"><a href="/">Home</a></li>
+        <li class="sidebar-nav-item"><a href="/equipes">Equipe</a></li>
+        <li class="sidebar-nav-item"><a href="/campeonatos">Campeonatos</a></li>
+        <li class="sidebar-nav-item"><a href="/partidas">Partidas</a></li>
+    </ul>
 </nav>

@@ -3,7 +3,7 @@ from Campeonato.models import Campeonato
 
 class Partida(models.Model):
     nome = models.CharField(verbose_name='Nome da Partida', max_length= 100, null= True)
-    data = models.DateField(verbose_name= 'Data' )
+    data = models.DateField(verbose_name= 'Data')
     horario = models.TimeField(verbose_name= 'Horario' )
     local = models.CharField(verbose_name= 'Local', max_length=30)
     resultado = models.CharField(verbose_name= 'Resultado', max_length=25,null= True)

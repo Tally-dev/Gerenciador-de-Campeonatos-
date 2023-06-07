@@ -9,11 +9,11 @@
         <div class="card">
             <div class="card-body" class="table-responsive">
                 <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-success">Partidas</h6>
+                    <div class="card-header">
+                        <h4 class="m-0 font-weight-bold text-primary">Partidas</h4>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered table-success" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered table-primary" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>Nome</th>
@@ -30,11 +30,11 @@
                                         <tbody>
                                                 
                                                 
-                                                <Th><a href="/partidas/{{ p.id }}/"class="text-success">{{ p.nome }}</a></Th>
+                                                <Th><a href="/partidas/{{ p.id }}/"class="text-primary">{{ p.nome }}</a></Th>
                                             
-                                                <Th><a href="/partidas/{{ p.id }}/"class="text-success">{{ p.data }}</a></Th>
+                                                <Th><a href="/partidas/{{ p.id }}/"class="text-primary">{{ p.data }}</a></Th>
 
-                                                <Th><a href="/partidas/{{ p.id }}/"class="text-success">{{ p.local }}</a></Th>
+                                                <Th><a href="/partidas/{{ p.id }}/"class="text-primary">{{ p.local }}</a></Th>
                                             
                                             <th>
                                                 {% if request.user.is_authenticated %}
@@ -44,7 +44,7 @@
                                                         </button>
                                                     </a>   
                                                     <a href="/partidas/editar/{{ p.id }}/">
-                                                        <button type="button" class="btn mb-1 btn-success">
+                                                        <button type="button" class="btn mb-1 btn-primary">
                                                             Editar <span> <i class="fa fa-edit"></i> </span>
                                                         </button>
                                                     </a>
@@ -61,7 +61,7 @@
                         </table>
                 <br>
                 {% if request.user.is_authenticated %}
-                <a href="/partidas/criar/"><button type="button" class="btn mb-1 btn-success">
+                <a href="/partidas/criar/"><button type="button" class="btn mb-1 btn-primary">
                     Add <span class="btn-icon-right"><i class="fa fa-plus"></i></span>
                 </button></a>
                 {%endif%}

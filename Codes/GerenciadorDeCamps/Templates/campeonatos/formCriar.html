@@ -3,19 +3,21 @@
 {% load bootstrap %}
 
 {% block content %}
-<div class="row">
+<div class="row py-3">
     <div class="col-md-4 mx-auto">
-        <div class="card">
+        <div class="card ">
+            <div class="card shadow">
             <div class="card-body">
                 <form action="/campeonatos/criar/" method="post">
                     {% csrf_token %}
 
                     {{ form|bootstrap }}
 
-                    <input type="submit" class="btn btn-success" value="Salvar">
+                    <input type="submit" class="btn btn-primary" value="Salvar">
 
                 </form>
             </div>
+        </div>
         </div>
     </div>
 </div>

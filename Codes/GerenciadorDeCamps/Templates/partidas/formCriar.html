@@ -3,18 +3,20 @@
 {% load bootstrap %}
 
 {% block content %}
-<div class="row">
+<div class="row py-3">
     <div class="col-md-4 mx-auto">
         <div class="card">
-            <div class="card-body">
-                <form action="/partidas/criar/" method="post">
-                    {% csrf_token %}
+            <div class="card shadow">
+                <div class="card-body">
+                    <form action="/partidas/criar/" method="post">
+                        {% csrf_token %}
 
-                    {{ form|bootstrap }}
+                        {{ form|bootstrap }}
 
-                    <input type="submit" class="btn btn-primary" value="Salvar">
+                        <input type="submit" class="btn btn-primary" value="Salvar">
 
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
