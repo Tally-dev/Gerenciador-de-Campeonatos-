@@ -4,70 +4,64 @@
 
 {% block content %}
 
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body" class="table-responsive">
-                <div class="card shadow mb-4">
-                    <div class="card-header">
-                        <h4 class="m-0 font-weight-bold text-primary">Partidas</h4>
+<div class="mx-auto">
+    <div class="col-lg-12 shadow mt-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">
+                <div class= "d-flex flex-row">
+                    <h4 class="p-2 col-lg-4">Partidas</h4>
+                    <div class=" p-2 col-lg-8 d-grid gap-2 d-md-flex justify-content-md-end">
+                        {% if request.user.is_authenticated %}
+                            <a href="/partidas/criar/"><button type="button" class="btn mb-1 btn-primary ">
+                                Add <span class="btn-icon-right"><i class="fa fa-plus"></i></span>
+                            </button></a>
+                            {%endif%}
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <table class="table table-bordered table-primary" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>Data</th>
-                                    <th>Local</th>
-                                    <th>Ações</th>
-                                </tr>
-                            </thead>
-                                    
-                                {% if partidas %}
-                                    <ul>
-                                    {% for p in partidas %}
-                                        
-                                        <tbody>
-                                                
-                                                
-                                                <Th><a href="/partidas/{{ p.id }}/"class="text-primary">{{ p.nome }}</a></Th>
-                                            
-                                                <Th><a href="/partidas/{{ p.id }}/"class="text-primary">{{ p.data }}</a></Th>
-
-                                                <Th><a href="/partidas/{{ p.id }}/"class="text-primary">{{ p.local }}</a></Th>
-                                            
-                                            <th>
-                                                {% if request.user.is_authenticated %}
-                                                    <a href="/partidas/excluir/{{ p.id }}/"> 
-                                                        <button type="button" class="btn mb-1 btn-danger">
-                                                        Excluir <span> <i class="fa fa-close"></i> </span>
-                                                        </button>
-                                                    </a>   
-                                                    <a href="/partidas/editar/{{ p.id }}/">
-                                                        <button type="button" class="btn mb-1 btn-primary">
-                                                            Editar <span> <i class="fa fa-edit"></i> </span>
-                                                        </button>
-                                                    </a>
-                                                    {% else %}
-                                                    <a> Você não está autorizado a realizar ações nessa lista </a>
-                                                {% endif %}
-                                            </Th>
-                                        </tbody>
-                                    {% endfor %}
-                                    </ul>
-                                {% else %}
-                                    <p>Não há registro de partidas.</p>
-                                {% endif %}
-                        </table>
-                <br>
-                {% if request.user.is_authenticated %}
-                <a href="/partidas/criar/"><button type="button" class="btn mb-1 btn-primary">
-                    Add <span class="btn-icon-right"><i class="fa fa-plus"></i></span>
-                </button></a>
-                {%endif%}
-                </div>
             </div>
+            <div class="table-responsive">
+                <table class="table table-striped ">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Data</th>
+                            <th>Local</th>
+                            <th style="text-align:right">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% if partidas %}
+                    {% for p in partidas %}
+                    
+                        <tr>
+                            <td><a href="/partidas/{{ p.id }}/"class="text-primary">{{ p.nome }}</a></td>
+                            <td><a href="/partidas/{{ p.id }}/"class="text-primary">{{ p.data }}</a></td>
+                            <td><a href="/partidas/{{ p.id }}/"class="text-primary">{{ p.local }}</a></td>
+                            <td style="text-align:right">
+                                {% if request.user.is_authenticated %}
+                                <span >
+                                    <a href="/partidas/excluir/{{ p.id }}/" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close"><i class="fa fa-close color-danger m-2"></i></a>
+                                    <a href="/partidas/editar/{{ p.id }}/" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fa fa-pencil color-muted m-r-5 m-2"></i> </a>
+                                    </span>
+
+                                    {% else %}
+                                    <a> Você não está autorizado a realizar ações nessa lista </a>
+                                {% endif %}
+                                </td>
+                        </tr>
+                        
+
+                        {%endfor%}
+                    {% else %}
+                                    <p>Não há registro de partidas.</p>
+                    {%endif%}
+                </tbody>
+                </table>
+            </div>
+            
         </div>
     </div>
-
+</div>
+</div>
 {%endblock%}

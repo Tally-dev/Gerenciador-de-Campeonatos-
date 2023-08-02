@@ -14,6 +14,11 @@ def listar(request):
     }
     return render(request, 'partidas/listar.html', context)
 
+def lista_partidas(request):
+    partidas = Partida.objects.all()
+    return render(request, 'partidas/lista_partidas.html', {'partidas': partidas})
+
+
 def detail(request, partida_id):
     Partidas = Partida.objects.get(pk=partida_id)
     context = {
@@ -28,7 +33,7 @@ def criar(request):
         form = Partidaform(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect("/partidas")
+            return HttpResponseRedirect("/partidas/listar")
     else:
         form = Partidaform()
     
@@ -43,7 +48,7 @@ def excluir(request, partida_id):
     
     Partida.objects.get(pk=partida_id).delete()
     
-    return HttpResponseRedirect("/partidas")    
+    return HttpResponseRedirect("/partidas/listar")    
 
 
 def editar(request, partida_id):
@@ -53,7 +58,7 @@ def editar(request, partida_id):
         form = Partidaform(request.POST, instance=Partidas)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect("/partidas")
+            return HttpResponseRedirect("/partidas/listar")
     else:
         form = Partidaform(instance=Partidas)
     

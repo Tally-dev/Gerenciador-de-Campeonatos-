@@ -1,14 +1,20 @@
 {% extends '_base.html' %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-4 mx-auto">
+<div class="mx-auto">
+    <div class="col-lg-6 shadow mt-3 mx-auto">
         <div class="card">
             <div class="card-body">
-                O campeonato "{{ Campeonato.nome }}" é uma competição {{Campeonato.tipopartida}} composta por {{Campeonato.qtdequipe}} equipes.
+                <div class="card-title">
+                    <div class="d-flex flex-row">
+                        <h4 class="p-2 col-lg-4">{{ campeonatos.nome }}</h4>
+                    </div>
+                </div>
+                    O campeonato "{{ campeonatos.nome }}" é uma competição {{campeonatos.tipopartida}} composta por {{campeonatos.qtdequipe}} equipes.
+            </div>
             </div>
         </div>
     </div>
-</div>
+    </div>
 
 {% endblock %}

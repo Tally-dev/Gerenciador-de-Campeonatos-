@@ -3,10 +3,14 @@
 {% load bootstrap %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-4 mx-auto">
-        <div class="card">
-            <div class="card-body">
+<div class="mx-auto">
+    <div class="col-lg-6 shadow mt-3 mx-auto">
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">
+                <div class= "d-flex flex-row">
+                <h4 class="p-2 col-lg-4">Registrar</h4>
+            </div>
                 <form action="{% url 'register' %}" method="post">
                     {% csrf_token %}
 
@@ -17,6 +21,7 @@
                     <input type="submit" class="btn btn-primary" value="Registrar">
 
                 </form>
+            
             </div>
         </div>
     </div>

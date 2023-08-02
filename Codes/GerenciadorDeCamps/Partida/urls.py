@@ -6,6 +6,7 @@ from . import views
 
 urlpatterns = [
     path('', views.listar, name='listar'),
+    path('listar/', views.lista_partidas, name='listarpart'),
     path('<int:partida_id>/', views.detail, name='detail'),
     path('excluir/<int:partida_id>/', views.excluir, name='excluir'),
     path('criar/', views.criar, name='criar'),

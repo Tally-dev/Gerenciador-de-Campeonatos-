@@ -1,11 +1,29 @@
 {% extends '_base.html' %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-4 mx-auto">
+<div class="mx-auto">
+    <div class="col-lg-6 shadow mt-3 mx-auto">
         <div class="card">
             <div class="card-body">
-                A equipe {{ Equipe.nome }} é formada por: {{Equipe.participantes}}
+                <div class="card-title">
+                    <div class="d-flex flex-row">
+                        <h5 class="p-2 col-lg-4">{{ equipes.nome }}</h5>
+                    </div>
+                    <div class="mx-auto col-lg-6">
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img src="{{ equipes.escudo.url }}" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="Responsive image">
+                              <div class="card-body">
+                                <p class="card-text">A equipe {{ equipes.nome }} é formada por: {{equipes.participantes}}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                  <div class="btn-group">
+                                    <a href="/equipes/"><button type="button" class="btn btn-sm btn-outline-primary "> Voltar </a>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
             </div>
         </div>
     </div>

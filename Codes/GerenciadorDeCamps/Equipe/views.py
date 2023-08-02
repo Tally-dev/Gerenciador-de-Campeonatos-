@@ -63,3 +63,13 @@ def editar(request, equipe_id):
     }
     
     return render(request, "equipes/formEditar.html", context)
+
+def escudo(request, equipe_id):
+    Equipes = Equipe.objects.get(pk=equipe_id)
+
+    context ={
+        'equipes': Equipes,
+        'equipe_id': equipe_id
+    }
+
+    return render(request, 'equipes/detail.html', context )

@@ -1,11 +1,19 @@
 {% extends '_base.html' %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-4 mx-auto">
+
+<div class="mx-auto">
+    <div class="col-lg-6 shadow mt-3 mx-auto">
         <div class="card">
             <div class="card-body">
-                A partida {{ Partida.nome }} é uma competição que acontecerá dia {{Partida.data}} no local {{Partida.local}}.
+                <div class="card-title">
+                    <div class="d-flex flex-row">
+                        <h4 class="p-2 col-lg-4">{{ partidas.nome }}</h4>
+                    </div>
+                </div>
+                
+                A partida {{ partidas.nome }} é uma competição que acontecerá no dia {{ partidas.data }} no local {{ partidas.local }}.
+                
             </div>
         </div>
     </div>

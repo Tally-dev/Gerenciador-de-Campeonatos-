@@ -1,9 +1,9 @@
-from django.forms import ModelForm
+from django import forms
 
 from Equipe.models import Equipe
 
-
-class Equipeform(ModelForm):
+class Equipeform(forms.ModelForm):
+    
     
     class Meta:
         model = Equipe
